@@ -1,0 +1,11 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile('org.apache.camel:camel-core:2.22.0')
+    testImplementation('junit:junit:4.12')
+}
