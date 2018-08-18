@@ -1,5 +1,6 @@
 bin/
 gradle/
+data/output
 .classpath
 .gradle/
 .project
