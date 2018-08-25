@@ -14,21 +14,21 @@ public class FileServiceImp implements FileService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FileServiceImp.class);
 
+    private static final CamelContext CONTEXT = new DefaultCamelContext();
+
     @Override
     public boolean moveFiles() {
         boolean moved = false;
-        CamelContext context = new DefaultCamelContext();
         try {
             RouteBuilder routeBuilder = new CustomRouteBuilder();
-            context.addRoutes(routeBuilder);
-            context.start();
+            CONTEXT.addRoutes(routeBuilder);
+            CONTEXT.start();
             Thread.sleep(5000);
-            context.stop();
+            CONTEXT.stop();
             moved = true;
         } catch (Exception e) {
             LOGGER.error("Error -> {}", e);
         }
-
         return moved;
     }
 }
